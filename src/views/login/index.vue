@@ -8,17 +8,20 @@
                 <el-input v-model="form.username"></el-input>
             </el-form-item>
             <el-form-item label="密码" prop="password">
-                <el-input v-model="form.password" type="password"></el-input>
+                                                            <!-- 加.native解决触发不了enter事件的问题。 -->
+                <el-input v-model="form.password" type="password" @keydown.enter.native="onSubmit('form')"></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="onSubmit" plain>登录</el-button>
-                <el-button type="warning" @click="onReset" plain>重置</el-button>
+                <el-button type="primary" @click="onSubmit('form')" plain>登录</el-button>
+                <el-button type="warning" @click="onReset('form')" plain>重置</el-button>
             </el-form-item>
         </el-form>
     </div>
 </template>
 
 <script>
+import { login, getUserInfo } from '@/api/login'
+
 export default {
     data() {
       return {
@@ -34,11 +37,48 @@ export default {
       }
     },
     methods: {
-      onSubmit () {
-        console.log('submit!')
+      onSubmit (formName) {
+        this.$refs[formName].validate(valid => {
+            if (valid) {
+                login(this.form.username, this.form.password).then(res => {
+                    const resp = res.data
+                    if (resp.flag) {
+                        getUserInfo(resp.data.token).then(resUser => {
+                            const respUser = resUser.data
+                            if (respUser.flag) {
+                                this.$message.success({
+                                    center: true,
+                                    message: resp.message + '欢迎您，' + respUser.data.name,
+                                    duration: 1200
+                                })
+                                // 1.保存token, 用户信息
+                                localStorage.setItem('user', JSON.stringify(respUser.data))
+                                localStorage.setItem('token', resp.data.token)
+                                // 2.前往首页
+                                this.$router.push('/')
+                            } else {
+                                this.$message.error({
+                                center: true,
+                                message: resp.message,
+                                duration: 800
+                                })
+                            }
+                        })
+                    } else {
+                        this.$message.error({
+                            center: true,
+                            message: resp.message,
+                            duration: 800
+                        })
+                    }
+                })
+            } else {
+                console.log('验证失败！')
+            }
+        })
       },
-      onReset () {
-        this.$refs['form'].resetFields();
+      onReset (formName) {
+        this.$refs[formName].resetFields();
       }
     }
   }
@@ -59,6 +99,12 @@ export default {
     .login-form .el-form-item__label {
         color: #adb2ff;
         font-size: 18px;
+    }
+    .login-form .el-form-item.is-required:not(.is-no-asterisk) .el-form-item__label-wrap>.el-form-item__label:before, .el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label:before {
+        color: #ffa4dc;
+    } 
+    .login-form .el-form-item__error {
+        color: #ffa4dc;
     }
     .login-form .el-button {
         color: #0f3ebe;
