@@ -1,6 +1,6 @@
 <template>
     <div class="login-container">
-        <el-form ref="form" :model="form" label-width="80px" class="login-form">
+        <el-form ref="form" :rules="rules" :model="form" label-width="80px" class="login-form">
             <el-form-item>
                 <h1 class="login-title">会员管理系统</h1>
             </el-form-item>
@@ -22,7 +22,14 @@
 export default {
     data() {
       return {
-        form: {
+        form: {},
+        rules: {
+            username: [
+                { required: true, message: '账号不能为空', trigger: 'blur' }
+            ],
+            password: [
+                { required: true, message: '密码不能为空', trigger: 'blur' }
+            ]
         }
       }
     },
@@ -64,6 +71,7 @@ export default {
         color: #0f3ebe;
         font-size: 18px;
         opacity: 0.88;
+        border-color: #409EFF;
     }
     .login-form .el-form-item__content {
         display: flex;
