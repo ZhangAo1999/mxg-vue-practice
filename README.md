@@ -1,29 +1,5 @@
-# mxg-msm
+# mxg-msm 梦学谷vue学习记录——管理系统。
 
-## Project setup
-```
-npm install
-```
+## 登录页面
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![](./public/登录页面.png)
