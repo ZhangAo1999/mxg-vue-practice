@@ -49,7 +49,7 @@ export default {
                                 this.$message.success({
                                     center: true,
                                     message: resp.message + '欢迎您，' + respUser.data.name,
-                                    duration: 1200
+                                    duration: 2000
                                 })
                                 // 1.保存token, 用户信息
                                 localStorage.setItem('user', JSON.stringify(respUser.data))
@@ -60,7 +60,7 @@ export default {
                                 this.$message.error({
                                 center: true,
                                 message: resp.message,
-                                duration: 800
+                                duration: 1200
                                 })
                             }
                         })
@@ -68,7 +68,7 @@ export default {
                         this.$message.error({
                             center: true,
                             message: resp.message,
-                            duration: 800
+                            duration: 1200
                         })
                     }
                 })
@@ -129,10 +129,10 @@ export default {
     }
     .login-container {
         position: absolute;
-        width: 100%;
+        width: 104%;
         height: 100%;
         background-image: url('../../assets/login.jpg');
         background-size: cover;
-        overflow-y: hidden;
+        overflow-y: scroll;
     }
 </style>
