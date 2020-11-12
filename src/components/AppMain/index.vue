@@ -5,13 +5,18 @@
                 <!-- AppHeader -->
                 <app-header></app-header>
                 <div class="text1">
-                    题目列表<br>
-                    <ol>
-                        <li v-for="(value, index) in list" :key="index">{{ value }}</li>
-                    </ol>
-                    <ol>
-                        <li v-for="(value, index) in list" :key="index">{{ value }}</li>
-                    </ol>
+                    <app-link></app-link>
+                    <div style="margin-top:20px"></div>
+                    <router-view></router-view>
+                    <div style="margin-top:50px"></div>
+                    <div>
+                        <center style="font-size:14px">
+                            会员管理系统<br/>
+                            Powered by <a href="https://github.com/ZhangAo1999/mxg-vue-practice">梦学谷练习</a>
+                            &nbsp;&nbsp;&nbsp;
+                            Version: 20201112-1.0
+                        </center>
+                    </div>
                 </div>
             </div>
         </div>
@@ -20,9 +25,10 @@
 
 <script>
     import AppHeader from '../AppHeader'
+    import AppLink from './Link'
 
     export default {
         props: ['list'],
-        components: {AppHeader}
+        components: {AppHeader, AppLink}
     }
 </script>
