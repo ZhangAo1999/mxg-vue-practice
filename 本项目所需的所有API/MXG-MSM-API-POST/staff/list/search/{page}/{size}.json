@@ -1,0 +1,50 @@
+{
+  "code": 2000,
+  "flag": true,
+  "message": "查询成功",
+  "data": function({
+    _req,
+    Mock
+  }) {
+    if (_req.params.size == "10") {
+      return Mock.mock({
+        "total": 800, // 总记录数
+        "rows|10": [{ // 当前查询的数据，每次查询10条
+          "id|+1": (parseInt(_req.params.page) - 1) * 10 + 1,
+          "username|5": "@word(1)",
+          "name": "@cname",
+          "age": "@integer(0,120)",
+          "mobile|11": "@integer(0,9)",
+          "salary": "@float(8000, 20000, 1, 2)",
+          "entryDate": "@date"
+        }]
+      })
+    } else if (_req.params.size == "20") {
+      return Mock.mock({
+        "total": 800, // 总记录数
+        "rows|20": [{ // 当前查询的数据，每次查询10条
+          "id|+1": (parseInt(_req.params.page) - 1) * 20 + 1,
+          "username|5": "@word(1)",
+          "name": "@cname",
+          "age": "@integer(0,120)",
+          "mobile|11": "@integer(0,9)",
+          "salary": "@float(8000, 20000, 1, 2)",
+          "entryDate": "@date"
+        }]
+      })
+    } else {
+      return Mock.mock({
+        "total": 800, // 总记录数
+        "rows|50": [{ // 当前查询的数据，每次查询10条
+          "id|+1": (parseInt(_req.params.page) - 1) * 50 + 1,
+          "username|5": "@word(1)",
+          "name": "@cname",
+          "age": "@integer(0,120)",
+          "mobile|11": "@integer(0,9)",
+          "salary": "@float(8000, 20000, 1, 2)",
+          "entryDate": "@date"
+        }]
+      })
+    }
+  }
+}

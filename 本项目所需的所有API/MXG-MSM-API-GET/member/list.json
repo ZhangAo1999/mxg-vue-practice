@@ -1,0 +1,16 @@
+{
+  "code": 2000,
+  "flag": true,
+  "message": "查询成功",
+  "data|20": [{
+    "id|+1": 10,
+    "cardNum": "@integer(10000)", //大于1000的正整数
+    "name": "@cname",
+    "birthday": "@date",
+    "phone|11": "@integer(0,9)", // 11个数字0-9间的数字
+    "integral": "@integer(0, 500)",
+    "money": "@float(0, 1000, 1, 3)", // 0-1000小数,1-3位小数位
+    "payType|1": ['1', '2', '3', '4'], // 4选 其1
+    "address": "@county(true)"
+  }]
+}

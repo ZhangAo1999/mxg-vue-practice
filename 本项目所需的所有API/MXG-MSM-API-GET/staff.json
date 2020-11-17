@@ -1,0 +1,19 @@
+{
+  "code": 2000,
+  "flag": true,
+  "message": "查询成功",
+  "data": function({
+    _req,
+    Mock
+  }) {
+    return Mock.mock({
+      "id": _req.params.id,
+      "username|5": "@word(1)",
+      "name": "@cname()" + _req.params.id,
+      "age": "@integer(0,120)",
+      "mobile|11": "@integer(0,9)",
+      "salary": "@float(8000, 20000, 1, 2)",
+      "entryDate": "@date"
+    })
+  }
+}

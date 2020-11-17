@@ -1,0 +1,10 @@
+{
+  "code": 2000,
+  "flag": true,
+  "message": '成功获取用户信息',
+  "data": {
+    "id|1-10000": 1,
+    "name": "@cname",
+    "roles": ["manager"]
+  }
+}

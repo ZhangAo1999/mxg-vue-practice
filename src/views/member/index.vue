@@ -11,7 +11,6 @@
             </el-form-item>
             <el-form-item prop="payType">
                 <el-select v-model="searchMap.payType" placeholder="支付类型" style="width: 110px">
-                    <!-- 不要忘记 payTypeOptions 绑定到data中 -->
                     <el-option v-for="option in payTypeOptions" 
                     :key="option.type"
                     :label="option.name"
@@ -36,11 +35,10 @@
          -->
          <el-table
             :data="list"
-            height="380"
             border
             style="width: 100%">
-            <!-- type="index"获取索引值，从1开始 ，label显示标题，prop 数据字段名，width列宽 -->
-            <el-table-column type="index" label="序号" width="60"></el-table-column>
+            <!-- label显示标题，prop 数据字段名，width列宽 -->
+            <el-table-column prop="id" label="序号" width="60"></el-table-column>
             <el-table-column prop="cardNum" label="会员卡号" ></el-table-column>
             <el-table-column prop="name" label="会员姓名" width="90"></el-table-column>
             <el-table-column prop="birthday" label="会员生日" ></el-table-column>
@@ -110,7 +108,6 @@
                 </el-form-item>
                 <el-form-item label="支付类型" prop="payType" >
                     <el-select v-model="pojo.payType" placeholder="支付类型" style="width: 110px">
-                        <!-- 不要忘记 payTypeOptions 绑定到data中 -->
                         <el-option v-for="option in payTypeOptions" 
                         :key="option.type"
                         :label="option.name"
@@ -151,7 +148,7 @@ export default {
             list: [],
             total: 0, // 总记录数
             currentPage: 1, // 当前页码 
-            pageSize: 20, // 每页显示10条数据,
+            pageSize: 10, // 每页显示10条数据,
             searchMap: { // 条件查询绑定的条件值
                 cardNum: '',
                 name: '',
@@ -209,6 +206,7 @@ export default {
             memberApi.search(this.currentPage, this.pageSize, this.searchMap).then(response =>{
                 const resp = response.data
                 // console.log(resp.data.rows)
+                console.log(resp)
                 this.list = resp.data.rows
                 this.total = resp.data.total
             })

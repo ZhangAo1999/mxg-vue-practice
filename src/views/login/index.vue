@@ -95,6 +95,7 @@ export default {
         border-radius: 20px;
         opacity: 0.96;
         border: white 0.4px solid;
+        box-shadow: 0 0 25px #5b63cc;
     }
     .login-form .el-form-item__label {
         color: #adb2ff;
@@ -126,6 +127,7 @@ export default {
     .login-title {
         color: #dbcdff;
         margin: 0 0;
+        text-shadow: 0 0 10px #4700ff;
     }
     .login-container {
         position: absolute;

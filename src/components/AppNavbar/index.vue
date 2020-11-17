@@ -1,11 +1,11 @@
 <template>
     <div>
         <el-menu :collapse="isCollapse" class="navbar" 
-            router="true" text-color="azure"
+            router text-color="azure"
             background-color="#150029">
             <li class="el-menu-item title" style="padding-left: 20px; color: azure; background-color: #210040;">
                 <img src="../../assets/logo.png" width="40px">
-                <span>BaoDing University</span>
+                <span>会员管理系统</span>
             </li>
             <el-menu-item index="/">
                 <i class="el-icon-s-home"></i>

@@ -1,0 +1,56 @@
+{
+  "code": 2000,
+  "flag": true,
+  "message": "查询成功",
+  "data": function({
+    _req,
+    Mock
+  }) {
+    if (_req.params.size == "10") {
+      return Mock.mock({
+        "total": 800, // 总记录数
+        "rows|10": [{ // 当前查询的数据，每次查询10条
+          "id|+1": (parseInt(_req.params.page) - 1) * 10 + 1,
+          "cardNum": "@integer(10000)", //大于1000的正整数
+          "name": "@cname",
+          "birthday": "@date",
+          "phone|11": "@integer(0,9)", // 11个数字0-9间的数字
+          "integral": "@integer(0, 500)",
+          "money": "@float(0, 1000, 1, 3)", // 0-1000小数,1-3位小数位
+          "payType|1": ['1', '2', '3', '4'], // 4选 其1
+          "address": "@county(true)"
+        }]
+      })
+    } else if (_req.params.size == "20") {
+      return Mock.mock({
+        "total": 800, // 总记录数
+        "rows|20": [{ // 当前查询的数据，每次查询10条
+          "id|+1": (parseInt(_req.params.page) - 1) * 20 + 1,
+          "cardNum": "@integer(10000)", //大于1000的正整数
+          "name": "@cname",
+          "birthday": "@date",
+          "phone|11": "@integer(0,9)", // 11个数字0-9间的数字
+          "integral": "@integer(0, 500)",
+          "money": "@float(0, 1000, 1, 3)", // 0-1000小数,1-3位小数位
+          "payType|1": ['1', '2', '3', '4'], // 4选 其1
+          "address": "@county(true)"
+        }]
+      })
+    } else {
+      return Mock.mock({
+        "total": 800, // 总记录数
+        "rows|50": [{ // 当前查询的数据，每次查询10条
+          "id|+1": (parseInt(_req.params.page) - 1) * 50 + 1,
+          "cardNum": "@integer(10000)", //大于1000的正整数
+          "name": "@cname",
+          "birthday": "@date",
+          "phone|11": "@integer(0,9)", // 11个数字0-9间的数字
+          "integral": "@integer(0, 500)",
+          "money": "@float(0, 1000, 1, 3)", // 0-1000小数,1-3位小数位
+          "payType|1": ['1', '2', '3', '4'], // 4选 其1
+          "address": "@county(true)"
+        }]
+      })
+    }
+  }
+}

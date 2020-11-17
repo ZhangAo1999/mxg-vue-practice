@@ -1,0 +1,12 @@
+{
+  "code": 2000,
+  "flag": true,
+  "message": "查询成功",
+  "data|30": [{
+    "id|+1": 10,
+    "name": "@ctitle",
+    "linkman": "@cname",
+    "mobile|11": "@integer(0, 9)", // 11个数字0-9间的数字
+    "remark": "@csentence(5, 15)",
+  }]
+}

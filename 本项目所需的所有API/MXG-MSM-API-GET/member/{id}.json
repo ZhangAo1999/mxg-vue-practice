@@ -1,0 +1,21 @@
+{
+  "code": 2000,
+  "flag": true,
+  "message": "查询成功",
+  "data": function({
+    _req,
+    Mock
+  }) {
+    return Mock.mock({
+      "id": _req.params.id,
+      "cardNum": "test01", //大于1000的正整数
+      "name": "测试会员" + _req.params.id,
+      "birthday": "@date",
+      "phone|11": "@integer(0,9)", // 11个位数字
+      "integral": "@integer(0, 500)",
+      "money": "@float(0, 100, 1, 3)", // 0-1000小数,1-3位小数位
+      "payType|1": ['1', '2', '3', '4'],
+      "address": "@county(true)"
+    })
+  }
+}

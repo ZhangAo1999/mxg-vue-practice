@@ -23,11 +23,10 @@
 
          <el-table
             :data="list"
-            height="380"
             border
             style="width: 100%">
-            <!-- type="index"获取索引值，从1开始 ，label显示标题，prop 数据字段名，width列宽 -->
-            <el-table-column type="index" label="序号" width="60"></el-table-column>
+            <!-- label显示标题，prop 数据字段名，width列宽 -->
+            <el-table-column prop="id" label="序号" width="60"></el-table-column>
             <el-table-column prop="name" label="商品名称" ></el-table-column>
             <el-table-column prop="code" label="商品编码" width="90"></el-table-column>
             <el-table-column prop="spec" label="商品规格" ></el-table-column>
@@ -59,7 +58,6 @@
             :total="total">
         </el-pagination>
 
-        <!-- 选择供应商对话框 -->
         <el-dialog title="选择供应商" :visible.sync="dialogSupplierVisible" width="500px">
             <supplier @option-supplier="optionSupplier" :isDialog="true"></supplier>
         </el-dialog>
@@ -212,6 +210,12 @@ export default {
                         const resp = response.data
                         if(resp.flag) {
                             this.fetchData()
+                            console.log("????")
+                            this.$message({
+                                message: '新增商品成功',
+                                type: 'success'
+                            })
+                            console.log("????")
                             this.dialogFormVisible = false
                         }else {
                             this.$message({

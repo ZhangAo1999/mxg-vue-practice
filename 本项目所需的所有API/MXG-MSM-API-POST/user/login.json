@@ -1,0 +1,14 @@
+{
+  "code": 2000, // 状态码
+  "flag": function({
+    _req
+  }) {
+    return _req.body.password === '123'
+  },
+  "message": function() {
+    return this.flag ? '登录成功！' : '用户名或密码错误！'
+  },
+  "data": {
+    "token": "admin"
+  }
+}

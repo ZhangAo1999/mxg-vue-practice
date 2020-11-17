@@ -1,0 +1,17 @@
+{
+  "code": 2000,
+  "flag": true,
+  "message": "查询成功",
+  "data": function({
+    _req,
+    Mock
+  }) {
+    return Mock.mock({
+      "id": _req.params.id,
+      "name": "@ctitle()" + _req.params.id,
+      "linkman": "@cname()" + _req.params.id,
+      "mobile|11": "@integer(0, 9)", // 11个数字0-9间的数字
+      "remark": "@csentence(5, 15)",
+    })
+  }
+}
