@@ -10,5 +10,5 @@
 
 就是随便找个[easy-mock](https://easy-mock.com/)的网址，自己搭建个也行，然后注册进去，创建个新的项目，设置啥的随意，基础url就也不用填，然后照着我那一堆api都抄上去。网址就是由路径和文件名拼起来。比如你要抄一个MXG-MSM-API-PUT下的user目录下的pwd.json，你的网址就写user/pwd，然后请求方法选put，再把json里的文件粘贴进去，保存就行了。
 
-然后等api接口都做好了之后，在.env.development文件中把VUE_APP_SERVICE_URL改成你的接口项目的地址。
+然后等api接口都做好了之后，在[.env.development](../.env.development)文件中把VUE_APP_SERVICE_URL改成你的接口项目的地址。
 

@@ -10,4 +10,14 @@
 
 ## 主体部分
 
-![](./public/主体部分.gif)
+### 分页处理
+
+![](./public/分页处理.gif)
+
+### logging加载
+
+![](./public/logging加载.gif)
+
+### 新增商品
+
+![](./public/新增商品.gif)
